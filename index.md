@@ -13,16 +13,18 @@ A Chrome extension that turns your new tab page into a macOS Launchpad-style URL
 - **Icon customization.** Auto-fetched favicons from multiple services, letter tiles with hash-based colors, or upload your own image (≤512 KB).
 - **Right-click menu.** Hide / delete / edit any icon; dissolve folders; add icons from blank space; restore hidden icons.
 - **Bookmarks bridge.** Convert your shortcuts to Chrome bookmarks (grouped into folders) or extract bookmarks as a JSON shortcut file.
-- **Optional cloud sync.** Sync your URLs and layout across devices via your Google Drive's hidden app-data folder. Zero backend, zero account creation. _(Coming soon — gated on Google OAuth verification.)_
+- **Optional cloud sync.** Sync your URLs and layout across devices via your Google Drive's hidden app-data folder or a private GitHub Gist — your choice. Zero backend. The GitHub path signs in with a device code, so it also works on mobile Chromium browsers.
+- **Light / dark theme.** Auto (follow system), light, or dark, toggled from the popup.
+- **Bilingual UI.** English and 中文 (Simplified Chinese).
 
 ## Privacy
 
-See the [Privacy Policy](privacy.html). Short version: all data is stored locally on your device. The optional cloud sync writes a single JSON file to your own Google Drive's hidden app-data folder; nothing is ever sent to any third-party server.
+See the [Privacy Policy](privacy.html). Short version: all data is stored locally on your device. The optional cloud sync writes a single JSON file to a place you own — your Google Drive's hidden app-data folder or a private GitHub Gist. No Urlist server, no analytics.
 
 ## Install
 
-Coming soon to the Chrome Web Store.
+[Install Urlist from the Chrome Web Store](https://chromewebstore.google.com/detail/urlist/dlkjphigbkimbjlebagnncfjpdobafcl), or load the repo unpacked from `chrome://extensions/` in developer mode.
 
 ## Source
 
-The source code is available on GitHub.
+Source code on GitHub: [antic222/Urlist](https://github.com/antic222/Urlist)
