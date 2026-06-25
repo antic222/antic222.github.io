@@ -51,8 +51,18 @@ Urlist 是一个 Chrome 扩展：给常用网址起个简短别名，在新标�
 ```json
 {
   "urls": [
-    { "id": "gh", "shortcut": "gh", "name": "GitHub", "url": "https://github.com/#:1", "group": "开发" },
-    { "id": "item_0", "name": "Anthropic", "url": "https://www.anthropic.com" }
+    {
+      "id": "gh",
+      "shortcut": "gh",
+      "name": "GitHub",
+      "url": "https://github.com/#:1",
+      "group": "开发"
+    },
+    {
+      "id": "item_0",
+      "name": "Anthropic",
+      "url": "https://www.anthropic.com"
+    }
   ]
 }
 ```
@@ -61,10 +71,25 @@ Urlist 是一个 Chrome 扩展：给常用网址起个简短别名，在新标�
 
 ```json
 {
-  "pages": [["gh", "f1718000000000"]],
-  "rootOrder": ["gh", "f1718000000000"],
+  "pages": [
+    [
+      "gh",
+      "f1718000000000"
+    ]
+  ],
+  "rootOrder": [
+    "gh",
+    "f1718000000000"
+  ],
   "folders": [
-    { "id": "f1718000000000", "name": "工作", "items": ["jira", "slack"] }
+    {
+      "id": "f1718000000000",
+      "name": "工作",
+      "items": [
+        "jira",
+        "slack"
+      ]
+    }
   ],
   "iconOverrides": {
     "gh": "letter:#3498db"
@@ -81,12 +106,23 @@ Urlist 是一个 Chrome 扩展：给常用网址起个简短别名，在新标�
   "deviceId": "device-9f2c",
   "quickNavData": {
     "urls": [
-      { "id": "gh", "shortcut": "gh", "name": "GitHub", "url": "https://github.com/#:1" }
+      {
+        "id": "gh",
+        "shortcut": "gh",
+        "name": "GitHub",
+        "url": "https://github.com/#:1"
+      }
     ]
   },
   "newtabLayout": {
-    "pages": [["gh"]],
-    "rootOrder": ["gh"],
+    "pages": [
+      [
+        "gh"
+      ]
+    ],
+    "rootOrder": [
+      "gh"
+    ],
     "folders": [],
     "iconOverrides": {}
   }
@@ -144,8 +180,18 @@ Import in the popup auto-detects three kinds of JSON file, one per export button
 ```json
 {
   "urls": [
-    { "id": "gh", "shortcut": "gh", "name": "GitHub", "url": "https://github.com/#:1", "group": "Dev" },
-    { "id": "item_0", "name": "Anthropic", "url": "https://www.anthropic.com" }
+    {
+      "id": "gh",
+      "shortcut": "gh",
+      "name": "GitHub",
+      "url": "https://github.com/#:1",
+      "group": "Dev"
+    },
+    {
+      "id": "item_0",
+      "name": "Anthropic",
+      "url": "https://www.anthropic.com"
+    }
   ]
 }
 ```
@@ -154,10 +200,25 @@ Import in the popup auto-detects three kinds of JSON file, one per export button
 
 ```json
 {
-  "pages": [["gh", "f1718000000000"]],
-  "rootOrder": ["gh", "f1718000000000"],
+  "pages": [
+    [
+      "gh",
+      "f1718000000000"
+    ]
+  ],
+  "rootOrder": [
+    "gh",
+    "f1718000000000"
+  ],
   "folders": [
-    { "id": "f1718000000000", "name": "Work", "items": ["jira", "slack"] }
+    {
+      "id": "f1718000000000",
+      "name": "Work",
+      "items": [
+        "jira",
+        "slack"
+      ]
+    }
   ],
   "iconOverrides": {
     "gh": "letter:#3498db"
@@ -174,12 +235,23 @@ Import in the popup auto-detects three kinds of JSON file, one per export button
   "deviceId": "device-9f2c",
   "quickNavData": {
     "urls": [
-      { "id": "gh", "shortcut": "gh", "name": "GitHub", "url": "https://github.com/#:1" }
+      {
+        "id": "gh",
+        "shortcut": "gh",
+        "name": "GitHub",
+        "url": "https://github.com/#:1"
+      }
     ]
   },
   "newtabLayout": {
-    "pages": [["gh"]],
-    "rootOrder": ["gh"],
+    "pages": [
+      [
+        "gh"
+      ]
+    ],
+    "rootOrder": [
+      "gh"
+    ],
     "folders": [],
     "iconOverrides": {}
   }
