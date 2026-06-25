@@ -4,6 +4,80 @@ title: Urlist
 permalink: /urlist/
 ---
 
+<style>
+/* ===== Right-side floating table of contents ===== */
+.page-toc {
+  position: fixed;
+  top: 96px;
+  left: calc(50% + 412px);
+  width: 200px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  padding: 14px 18px;
+  font-size: 13px;
+  line-height: 1.45;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  background: #fcfcfc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
+}
+.page-toc > p {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #9a9a9a;
+}
+.page-toc ul { list-style: none; margin: 0; padding: 0; }
+.page-toc ul ul { padding-left: 12px; margin: 2px 0; }
+.page-toc li { margin: 1px 0; }
+.page-toc a {
+  display: block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: #555;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.page-toc a:hover { background: #eef3fb; color: #2a7ae2; }
+.page-toc > ul > li > a { font-weight: 600; color: #333; }
+/* Hide when there isn't room beside the centred ~800px content column */
+@media (max-width: 1240px) { .page-toc { display: none; } }
+
+/* ===== Collapsible JSON samples ===== */
+.json-sample { margin: 6px 0 20px; }
+.json-sample > summary {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  font-size: 13px;
+  color: #2a7ae2;
+  background: #f3f7fc;
+  border: 1px solid #dfe8f4;
+  border-radius: 8px;
+  user-select: none;
+  list-style: none;
+  transition: background .15s;
+}
+.json-sample > summary::-webkit-details-marker { display: none; }
+.json-sample > summary::before { content: "▸"; font-size: 10px; }
+.json-sample[open] > summary::before { content: "▾"; }
+.json-sample > summary:hover { background: #e9f1fb; }
+.json-sample[open] > summary { margin-bottom: 4px; }
+</style>
+
+<nav class="page-toc" markdown="1">
+**目录 · Contents**
+
+* TOC
+{:toc}
+</nav>
+
 *A Chrome extension for alias-driven URL navigation, with a macOS Launchpad-style new tab page.*
 
 [中文](#zh) · [English](#en)
@@ -48,6 +122,9 @@ Urlist 是一个 Chrome 扩展：给常用网址起个简短别名，在新标�
 
 **1. 别名（快捷方式）** —— 导出按钮「导出 JSON」，文件名形如 `quick-nav-*.json`：
 
+<details class="json-sample" markdown="1">
+<summary>查看 JSON 样例</summary>
+
 ```json
 {
   "urls": [
@@ -67,7 +144,12 @@ Urlist 是一个 Chrome 扩展：给常用网址起个简短别名，在新标�
 }
 ```
 
+</details>
+
 **2. 桌面布局** —— 导出按钮「导出布局」，文件名形如 `layout-*.json`。`pages` 是每页的图标顺序（顶层图标 id 与文件夹 id），`folders[].items` 是文件夹内的图标，`iconOverrides` 用 `letter:#十六进制色` 或图片网址覆盖图标：
+
+<details class="json-sample" markdown="1">
+<summary>查看 JSON 样例</summary>
 
 ```json
 {
@@ -97,7 +179,12 @@ Urlist 是一个 Chrome 扩展：给常用网址起个简短别名，在新标�
 }
 ```
 
+</details>
+
 **3. 完整备份** —— 导出按钮「导出完整备份」，文件名形如 `urlist-backup-*.json`；与云同步同构，把上面两份数据合在一个文件里：
+
+<details class="json-sample" markdown="1">
+<summary>查看 JSON 样例</summary>
 
 ```json
 {
@@ -128,6 +215,8 @@ Urlist 是一个 Chrome 扩展：给常用网址起个简短别名，在新标�
   }
 }
 ```
+
+</details>
 
 ### 安装
 
@@ -177,6 +266,9 @@ Import in the popup auto-detects three kinds of JSON file, one per export button
 
 **1. Aliases (shortcuts)** — the "Export JSON" button, filename like `quick-nav-*.json`:
 
+<details class="json-sample" markdown="1">
+<summary>View JSON sample</summary>
+
 ```json
 {
   "urls": [
@@ -196,7 +288,12 @@ Import in the popup auto-detects three kinds of JSON file, one per export button
 }
 ```
 
+</details>
+
 **2. Layout** — the "Export Layout" button, filename like `layout-*.json`. `pages` is the icon order on each page (top-level icon ids and folder ids), `folders[].items` are the icons inside a folder, and `iconOverrides` overrides an icon with `letter:#hexColor` or an image URL:
+
+<details class="json-sample" markdown="1">
+<summary>View JSON sample</summary>
 
 ```json
 {
@@ -226,7 +323,12 @@ Import in the popup auto-detects three kinds of JSON file, one per export button
 }
 ```
 
+</details>
+
 **3. Full backup** — the "Export Full Backup" button, filename like `urlist-backup-*.json`; same shape as cloud sync, bundling both of the above into one file:
+
+<details class="json-sample" markdown="1">
+<summary>View JSON sample</summary>
 
 ```json
 {
@@ -257,6 +359,8 @@ Import in the popup auto-detects three kinds of JSON file, one per export button
   }
 }
 ```
+
+</details>
 
 ### Install
 
