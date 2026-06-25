@@ -42,6 +42,57 @@ Urlist 是一个 Chrome 扩展：给常用网址起个简短别名，在新标�
 - **书签互转**：在弹窗里把别名导出成 Chrome 书签（按分组建文件夹），或把已有书签转成 Urlist 的别名文件。
 - **主题与语言**：弹窗右上角可切换 浅色 / 深色 / 跟随系统，以及 中 / English；切换即时生效，已打开的新标签页也会跟着变。
 
+### 导入 / 导出的 JSON 格式
+
+弹窗里的「导入」会自动识别三种 JSON 文件，分别对应三个导出按钮。手动编辑时可参考下面的样例——每个网址项只有 `url` 必填（须以 `http://` 或 `https://` 开头），其余字段都可省略。
+
+**1. 别名（快捷方式）** —— 导出按钮「导出 JSON」，文件名形如 `quick-nav-*.json`：
+
+```json
+{
+  "urls": [
+    { "id": "gh", "shortcut": "gh", "name": "GitHub", "url": "https://github.com/#:1", "group": "开发" },
+    { "id": "item_0", "name": "Anthropic", "url": "https://www.anthropic.com" }
+  ]
+}
+```
+
+**2. 桌面布局** —— 导出按钮「导出布局」，文件名形如 `layout-*.json`。`pages` 是每页的图标顺序（顶层图标 id 与文件夹 id），`folders[].items` 是文件夹内的图标，`iconOverrides` 用 `letter:#十六进制色` 或图片网址覆盖图标：
+
+```json
+{
+  "pages": [["gh", "f1718000000000"]],
+  "rootOrder": ["gh", "f1718000000000"],
+  "folders": [
+    { "id": "f1718000000000", "name": "工作", "items": ["jira", "slack"] }
+  ],
+  "iconOverrides": {
+    "gh": "letter:#3498db"
+  }
+}
+```
+
+**3. 完整备份** —— 导出按钮「导出完整备份」，文件名形如 `urlist-backup-*.json`；与云同步同构，把上面两份数据合在一个文件里：
+
+```json
+{
+  "version": 7,
+  "updatedAt": "2026-06-25T08:00:00.000Z",
+  "deviceId": "device-9f2c",
+  "quickNavData": {
+    "urls": [
+      { "id": "gh", "shortcut": "gh", "name": "GitHub", "url": "https://github.com/#:1" }
+    ]
+  },
+  "newtabLayout": {
+    "pages": [["gh"]],
+    "rootOrder": ["gh"],
+    "folders": [],
+    "iconOverrides": {}
+  }
+}
+```
+
 ### 安装
 
 [从 Chrome 应用商店安装 Urlist](https://chromewebstore.google.com/detail/urlist/dlkjphigbkimbjlebagnncfjpdobafcl)。
@@ -83,6 +134,57 @@ Urlist is a Chrome extension: give your frequent URLs short aliases and open the
 - **Restore hidden icons**: right-click blank space → "Show hidden icons" to bring back anything you hid.
 - **Bookmarks bridge**: from the popup, export your aliases as Chrome bookmarks (grouped into folders), or convert existing bookmarks into a Urlist alias file.
 - **Theme & language**: the popup's top-right toggles switch light / dark / follow-system and English / 中文; changes apply live, including to any open new tab.
+
+### Import / export JSON formats
+
+Import in the popup auto-detects three kinds of JSON file, one per export button. When hand-editing, use the samples below — only `url` is required on each entry (it must start with `http://` or `https://`); every other field is optional.
+
+**1. Aliases (shortcuts)** — the "Export JSON" button, filename like `quick-nav-*.json`:
+
+```json
+{
+  "urls": [
+    { "id": "gh", "shortcut": "gh", "name": "GitHub", "url": "https://github.com/#:1", "group": "Dev" },
+    { "id": "item_0", "name": "Anthropic", "url": "https://www.anthropic.com" }
+  ]
+}
+```
+
+**2. Layout** — the "Export Layout" button, filename like `layout-*.json`. `pages` is the icon order on each page (top-level icon ids and folder ids), `folders[].items` are the icons inside a folder, and `iconOverrides` overrides an icon with `letter:#hexColor` or an image URL:
+
+```json
+{
+  "pages": [["gh", "f1718000000000"]],
+  "rootOrder": ["gh", "f1718000000000"],
+  "folders": [
+    { "id": "f1718000000000", "name": "Work", "items": ["jira", "slack"] }
+  ],
+  "iconOverrides": {
+    "gh": "letter:#3498db"
+  }
+}
+```
+
+**3. Full backup** — the "Export Full Backup" button, filename like `urlist-backup-*.json`; same shape as cloud sync, bundling both of the above into one file:
+
+```json
+{
+  "version": 7,
+  "updatedAt": "2026-06-25T08:00:00.000Z",
+  "deviceId": "device-9f2c",
+  "quickNavData": {
+    "urls": [
+      { "id": "gh", "shortcut": "gh", "name": "GitHub", "url": "https://github.com/#:1" }
+    ]
+  },
+  "newtabLayout": {
+    "pages": [["gh"]],
+    "rootOrder": ["gh"],
+    "folders": [],
+    "iconOverrides": {}
+  }
+}
+```
 
 ### Install
 
