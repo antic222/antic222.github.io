@@ -5,14 +5,8 @@ permalink: /urlist/
 ---
 
 <style>
-/* ===== Right-side floating table of contents ===== */
+/* ===== Table of contents (right column) ===== */
 .page-toc {
-  position: fixed;
-  top: 96px;
-  left: calc(50% + 412px);
-  width: 200px;
-  max-height: calc(100vh - 140px);
-  overflow-y: auto;
   padding: 14px 18px;
   font-size: 13px;
   line-height: 1.45;
@@ -44,8 +38,27 @@ permalink: /urlist/
 }
 .page-toc a:hover { background: #eef3fb; color: #2a7ae2; }
 .page-toc > ul > li > a { font-weight: 600; color: #333; }
-/* Hide when there isn't room beside the centred ~800px content column */
-@media (max-width: 1240px) { .page-toc { display: none; } }
+
+/* Two-column layout: text on the left, a sticky table of contents
+   docked on the right. Kicks in above a small-laptop width; the page
+   widens to make room so the TOC never overlaps the text. */
+@media (min-width: 960px) {
+  .site-header > .wrapper,
+  .page-content > .wrapper,
+  .site-footer > .wrapper { max-width: 1000px; }
+  .doc { display: flex; flex-direction: row-reverse; align-items: flex-start; gap: 40px; }
+  .doc-main { flex: 1 1 auto; min-width: 0; }
+  .page-toc {
+    position: sticky;
+    top: 24px;
+    flex: 0 0 200px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
+}
+/* Narrow / mobile: no room beside the text, so hide the side TOC.
+   The in-page anchors and the top 中文 · English links still work. */
+@media (max-width: 959px) { .page-toc { display: none; } }
 
 /* ===== Collapsible JSON samples ===== */
 .json-sample { margin: 6px 0 20px; }
@@ -71,12 +84,15 @@ permalink: /urlist/
 .json-sample[open] > summary { margin-bottom: 4px; }
 </style>
 
+<div class="doc" markdown="1">
 <nav class="page-toc" markdown="1">
 **目录 · Contents**
 
 * TOC
 {:toc}
 </nav>
+
+<div class="doc-main" markdown="1">
 
 *A Chrome extension for alias-driven URL navigation, with a macOS Launchpad-style new tab page.*
 
@@ -369,3 +385,6 @@ Import in the popup auto-detects three kinds of JSON file, one per export button
 ### Privacy
 
 See the [Privacy Policy](privacy.html). In short: all data stays on your device by default; optional cloud sync writes a single JSON file to a place you own (a hidden Google Drive folder or a private GitHub Gist). No Urlist server, no analytics.
+
+</div>
+</div>
